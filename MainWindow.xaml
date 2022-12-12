@@ -1,0 +1,59 @@
+﻿<Window x:Class="pz12.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:pz12"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <DockPanel>
+        <StackPanel Orientation="Vertical" DockPanel.Dock="Top">
+            <Menu>
+                <MenuItem Header="File">
+                    <MenuItem Name="FileNewMenuItem" Header="New" Click="FileNewMenuItem_Click"/>
+                    <MenuItem Name="FileOpenMenuItem" Header="Open" Click="FileOpenMenuItem_Click"/>
+                    <MenuItem Name="FileSaveMenuItem" Header="Save" Click="FileSaveMenuItem_Click"/>
+                </MenuItem>
+                <MenuItem Header="Sample">
+                    <MenuItem Header="Create"/>
+                    <MenuItem Header="Load"/>
+                </MenuItem>
+
+                <MenuItem Header="About">
+                    <MenuItem Header="About program"/>
+                    <MenuItem Header="About authors"/>
+                </MenuItem>
+            </Menu>
+            <WrapPanel>
+                <Button Name="BoldButton" Click="btnBold_Click" Height="20" Width="20">
+                    <Image Source="/text_bold.png"/>
+                </Button>
+                <Button Name="ItalicButton" Click="btnItalic_Click" Height="20" Width="20">
+                    <Image Source="/text_italic.png"/>
+                </Button>
+                <Button Name="UnderlineButton" Click="btnUnderline_Click" Height="20" Width="20">
+                    <Image Source="/text_underline.png"/>
+                </Button>
+            </WrapPanel>
+        </StackPanel>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem>
+                <TextBlock Name="tb_pos" Text="dkjhkjdh"></TextBlock>
+            </StatusBarItem>
+            <StatusBarItem>
+                <TextBlock Name="tb_status" Text="требуется сохранение"></TextBlock>
+            </StatusBarItem>
+            <StatusBarItem HorizontalAlignment="Center">
+                <TextBlock x:Name="tb_date" Text="dkjhkjdh"></TextBlock>
+            </StatusBarItem>
+            <StatusBarItem HorizontalAlignment="Right">
+                <TextBlock x:Name="tb_size" Text="" ></TextBlock>
+            </StatusBarItem>
+        </StatusBar>
+        <ListBox Name="FilesList" DockPanel.Dock="Left" Width="200" SelectionChanged="FilesList_SelectionChanged"/>
+        
+        <RichTextBox Name="rtbEditor" AcceptsReturn="True" AcceptsTab="True" SpellCheck.IsEnabled="True" Language="ru-ru" TextChanged="rtbEditor_TextChanged"/>
+        
+    </DockPanel>
+
+</Window>
